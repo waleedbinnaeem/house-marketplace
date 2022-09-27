@@ -4,6 +4,7 @@ import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore'
 import { db } from '../firebase.config'
 import Spinner from './Spinner'
 import {Swiper, SwiperSlide} from 'swiper/react'
+import { EffectCube, Pagination } from 'swiper';
 import 'swiper/css';
 
 function Slider() {
@@ -18,7 +19,7 @@ function Slider() {
       const q = query(listingsRef, orderBy('timestamp', 'desc'), limit(5))
       const querySnap = await getDocs(q)
 
-      let listings = []
+      const listings = []
 
       querySnap.forEach((doc) => {
         return listings.push({
@@ -48,34 +49,42 @@ function Slider() {
         <p className='exploreHeading'>Recommended</p>
 
         <Swiper
+          effect={"cube"}
+          modules={[EffectCube, Pagination]}
+          pagination={true}
           spaceBetween={50}
           slidesPerView={1}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
         >
-          <SwiperSlide>Slide One</SwiperSlide>
-          <SwiperSlide>Slide two</SwiperSlide>
-          <SwiperSlide>Slide Three</SwiperSlide>
-          {listings.map(({ data, id, }) => (
-            <SwiperSlide
-              key={id}
-              onClick={() => navigate(`/category/${data.type}/${id}`)}
-            >
-              <div
-                style={{
-                  background: `url(${data.imgUrls[0]}) center no-repeat`,
-                  backgroundSize: 'cover',
-                }}
-                className='swiperSlideDiv'
-              >
-                <p className='swiperSlideText'>{data.name}</p>
-                <p className='swiperSlidePrice'>
-                  ${data.discountedPrice ?? data.regularPrice}{' '}
-                  {data.type === 'rent' && '/ month'}
-                </p>
-              </div>
-            </SwiperSlide>
-          ))}
+          {listings.map(({ data, id, }) =>{
+            const bgImage = data.imgUrls[0];
+            console.log("backgroundImage", bgImage)
+
+            return(
+              <>
+              <SwiperSlide
+                  key={id}
+                  onClick={() => navigate(`/category/${data.type}/${id}`)}>
+
+                        <div className='swiperSlideDiv'
+                              style={{
+                                backgroundImage:`url(${bgImage})`,
+                                backgroundPosition: 'center',
+                                backgroundSize: 'cover',
+                                backgroundRepeat: 'no-repeat'
+                              }}>
+                            <p className='swiperSlideText'>{data.name}</p>
+                            <p className='swiperSlidePrice'>
+                              ${data.discountedPrice ?? data.regularPrice}{' '}
+                              {data.type === 'rent' && '/ month'}
+                            </p>
+                        </div>
+              </SwiperSlide>
+            </>
+            )
+          })}
+          
         </Swiper>
       </>
     )

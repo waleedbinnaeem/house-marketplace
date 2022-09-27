@@ -9,10 +9,9 @@ import Spinner from '../components/Spinner'
 import shareIcon from '../assets/svg/shareIcon.svg'
 
 import {Swiper, SwiperSlide} from 'swiper/react'
+import { EffectCube, Pagination } from 'swiper';
 import 'swiper/css';
 
- 
-// mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
 
 function Listing() {
 
@@ -25,16 +24,6 @@ function Listing() {
     const auth = getAuth()
 
     useEffect(() => {
-
-        // if (ref.current && !map) {
-        //     const map = new mapboxgl.Map({
-        //       container: ref.current,
-        //       style: "mapbox://styles/mapbox/streets-v11",
-        //       center: [0, 0],
-        //       zoom: 1
-        //     });
-        //     setMap(map);
-        // }
 
         const fetchListing = async () => {
             const docRef = doc(db, 'listings', params.listingId)
@@ -58,14 +47,14 @@ function Listing() {
   return <main>
     
     <Swiper 
-        spaceBetween={50}
-        slidesPerView={1}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+         effect={"cube"}
+         modules={[EffectCube, Pagination]}
+         pagination={true}
+         spaceBetween={50}
+         slidesPerView={1}
+         onSlideChange={() => console.log('slide change')}
+         onSwiper={(swiper) => console.log(swiper)}
     >
-        <SwiperSlide>Slide One</SwiperSlide>
-        <SwiperSlide>Slide two</SwiperSlide>
-        <SwiperSlide>Slide Three</SwiperSlide>
 
         {listing.imgUrls.map((url, index) => (
             
@@ -73,8 +62,10 @@ function Listing() {
             
             <div
               style={{
-                background: `url(${listing.imgUrls[index]}) center no-repeat`,
+                backgroundImage: `url(${listing.imgUrls[index]})`,
+                backgroundPosition: 'center',
                 backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'
               }}
               className='swiperSlideDiv'
             ></div>
