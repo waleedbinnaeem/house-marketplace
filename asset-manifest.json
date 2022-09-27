@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/waleedbinnaeem/house-marketplace/static/css/main.943cd550.css",
-    "main.js": "/waleedbinnaeem/house-marketplace/static/js/main.19197e75.js",
+    "main.js": "/waleedbinnaeem/house-marketplace/static/js/main.4d649212.js",
     "static/js/787.889a0458.chunk.js": "/waleedbinnaeem/house-marketplace/static/js/787.889a0458.chunk.js",
     "static/media/sellCategoryImage.jpg": "/waleedbinnaeem/house-marketplace/static/media/sellCategoryImage.c4d28ee7217d692d13fb.jpg",
     "static/media/rentCategoryImage.jpg": "/waleedbinnaeem/house-marketplace/static/media/rentCategoryImage.cd9f015021c041d9ad87.jpg",
@@ -22,11 +22,11 @@
     "static/media/keyboardArrowRightIcon.svg": "/waleedbinnaeem/house-marketplace/static/media/keyboardArrowRightIcon.8cee54bec29003f4c3faa8f2acfa6de8.svg",
     "static/media/homeIcon.svg": "/waleedbinnaeem/house-marketplace/static/media/homeIcon.09f28a7193ed1624e778ad88fc51ab56.svg",
     "main.943cd550.css.map": "/waleedbinnaeem/house-marketplace/static/css/main.943cd550.css.map",
-    "main.19197e75.js.map": "/waleedbinnaeem/house-marketplace/static/js/main.19197e75.js.map",
+    "main.4d649212.js.map": "/waleedbinnaeem/house-marketplace/static/js/main.4d649212.js.map",
     "787.889a0458.chunk.js.map": "/waleedbinnaeem/house-marketplace/static/js/787.889a0458.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.943cd550.css",
-    "static/js/main.19197e75.js"
+    "static/js/main.4d649212.js"
   ]
 }
