@@ -20,37 +20,22 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/problem-showcase" element={<Explore />} />
-          <Route path="/problem-showcase/offers" element={<Offers />} />
-          <Route
-            path="/problem-showcase/category/:categoryName"
-            element={<Category />}
-          />
-          <Route path="/problem-showcase/profile" element={<PrivateRoute />}>
-            <Route path="/problem-showcase/profile" element={<Profile />} />
+          <Route path="/" element={<Explore />} />
+          <Route path="/offers" element={<Offers />} />
+          <Route path="/category/:categoryName" element={<Category />} />
+          <Route path="/profile" element={<PrivateRoute />}>
+            <Route path="/profile" element={<Profile />} />
           </Route>
-          <Route path="/problem-showcase/sign-in" element={<SignIn />} />
-          <Route path="/problem-showcase/sign-up" element={<SignUp />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/create-listing" element={<CreateListing />} />
+          <Route path="/edit-listing/:listingId" element={<EditListing />} />
           <Route
-            path="/problem-showcase/forgot-password"
-            element={<ForgotPassword />}
-          />
-          <Route
-            path="/problem-showcase/create-listing"
-            element={<CreateListing />}
-          />
-          <Route
-            path="/problem-showcase/edit-listing/:listingId"
-            element={<EditListing />}
-          />
-          <Route
-            path="/problem-showcase/category/:categoryName/:listingId"
+            path="/category/:categoryName/:listingId"
             element={<Listing />}
           />
-          <Route
-            path="/problem-showcase/contact/:landlordId"
-            element={<Contact />}
-          />
+          <Route path="/contact/:landlordId" element={<Contact />} />
         </Routes>
         <Navbar />
       </Router>
